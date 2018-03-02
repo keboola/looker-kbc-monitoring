@@ -12,13 +12,3 @@ datagroup: kbc_monitoring_default_datagroup {
 }
 
 persist_with: kbc_monitoring_default_datagroup
-
-explore: connection_reg_r3 {}
-
-explore: jobs_jobs {}
-
-explore: queries {}
-
-explore: queriesdevel {}
-
-explore: syrupjobs {}
