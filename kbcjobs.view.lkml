@@ -24,6 +24,7 @@ view: kbcjobs {
   dimension: component_type {
     type: string
     sql: ${TABLE}.COMPONENT_TYPE ;;
+    drill_fields: [component]
   }
 
   dimension: credits {
@@ -104,6 +105,13 @@ view: kbcjobs {
     sql: ${TABLE}.JOB_WAITTIME_SEC ;;
   }
 
+  dimension: job_waittime_sec_tier {
+    type: tier
+    tiers: [0, 2, 5, 10, 30, 60, 300, 1800]
+    sql: ${job_waittime_sec} ;;
+    style: relational
+  }
+
   dimension: network_mb {
     type: number
     sql: ${TABLE}.NETWORK_MB ;;
@@ -141,6 +149,30 @@ view: kbcjobs {
 
   measure: count {
     type: count
-    drill_fields: [project_id, component]
+    drill_fields: [job_id, project_region, project_id, component,job_waittime_sec, job_runtime_sec]
+  }
+
+  measure: average_waittime_sec {
+    type: average
+    sql: ${job_waittime_sec} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+  }
+
+  measure: median_runtime_sec {
+    type: median
+    sql: ${job_runtime_sec} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+  }
+
+  measure: total_runtime_sec {
+    type: sum
+    sql: ${job_runtime_sec} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+  }
+
+  measure: total_credits {
+    type:  sum
+    sql: ${credits} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
   }
 }

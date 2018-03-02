@@ -12,3 +12,5 @@ datagroup: kbc_monitoring_default_datagroup {
 }
 
 persist_with: kbc_monitoring_default_datagroup
+
+explore: kbcjobs {}
