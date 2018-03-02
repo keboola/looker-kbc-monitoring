@@ -170,9 +170,22 @@ view: kbcjobs {
     drill_fields: [job_id, project_id, component, job_waittime_sec]
   }
 
+  measure: total_runtime_hours {
+    type: number
+    sql: ${total_runtime_sec} / 3600.0 ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+    value_format_name: decimal_0
+  }
+
   measure: total_credits {
     type:  sum
     sql: ${credits} ;;
     drill_fields: [job_id, project_id, component, job_waittime_sec]
+    value_format_name: decimal_0
+  }
+
+  measure: number_of_unique_components {
+    type: count_distinct
+    sql: ${component} ;;
   }
 }
