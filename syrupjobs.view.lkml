@@ -127,4 +127,9 @@ view: syrupjobs {
     style: relational
   }
 
+  measure: component_unified {
+    type:  string
+    sql:  IFF("component" == 'docker', "params_component", "component") ;;
+  }
+
 }
