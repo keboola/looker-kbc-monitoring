@@ -106,13 +106,13 @@ view: syrupjobs {
   }
 
   measure: job_duration_hours {
-    type: number
+    type: sum
     sql:  DATEDIFF(hour, "startTime", "endTime") ;;
   }
 
   measure: job_duration_minutes {
-    type: number
-    sql:  DATEDIFF(hour, "startTime", "endTime") ;;
+    type: sum
+    sql:  DATEDIFF(minute, "startTime", "endTime") ;;
   }
 
 }
