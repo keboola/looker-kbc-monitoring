@@ -122,7 +122,7 @@ view: syrupjobs {
 
   dimension: job_duration_minutes_tier {
     type: tier
-    tiers: [0, 2, 5, 10, 30, 60, 300, 1800]
+    tiers: [0, 2, 5, 10, 30, 60, 120, 180, 300, 600]
     sql: ${job_duration_minutes_dimension} ;;
     style: relational
   }
