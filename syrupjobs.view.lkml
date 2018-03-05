@@ -115,4 +115,16 @@ view: syrupjobs {
     sql:  DATEDIFF(minute, "startTime", "endTime") ;;
   }
 
+  dimension: job_duration_minutes_dimension {
+    type: number
+    sql:  DATEDIFF(minute, "startTime", "endTime") ;;
+  }
+
+  dimension: job_duration_minutes_tier {
+    type: tier
+    tiers: [0, 2, 5, 10, 30, 60, 300, 1800]
+    sql: ${job_duration_minutes_dimension} ;;
+    style: relational
+  }
+
 }
