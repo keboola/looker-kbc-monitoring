@@ -129,7 +129,7 @@ view: syrupjobs {
 
   measure: component_unified {
     type:  string
-    sql:  IFF("component" == 'docker', "params_component", "component") ;;
+    sql:  IFF("component" = 'docker', "params_component", "component") ;;
   }
 
 }
