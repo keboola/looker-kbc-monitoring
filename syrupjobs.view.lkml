@@ -104,4 +104,15 @@ view: syrupjobs {
     type: count
     drill_fields: [id, project_id, project_name]
   }
+
+  measure: job_duration_hours {
+    type: number
+    sql:  DATEDIFF(hour, "startTime", "endTime") ;;
+  }
+
+  measure: job_duration_minutes {
+    type: number
+    sql:  DATEDIFF(hour, "startTime", "endTime") ;;
+  }
+
 }
