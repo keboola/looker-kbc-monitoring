@@ -27,9 +27,14 @@ view: kbcjobs {
     drill_fields: [component]
   }
 
-  dimension: credits {
+  dimension: credits_real_usage {
     type: number
-    sql: ${TABLE}.CREDITS ;;
+    sql: ${TABLE}.CREDITS_REAL_USAGE ;;
+  }
+
+  dimension: credits_billed_usage {
+    type: number
+    sql: ${TABLE}.CREDITS_BILLED_USAGE ;;
   }
 
   dimension_group: job_created {
@@ -177,9 +182,9 @@ view: kbcjobs {
     value_format_name: decimal_0
   }
 
-  measure: total_credits {
+  measure: total_credits_real {
     type:  sum
-    sql: ${credits} ;;
+    sql: ${credits_real_usage} ;;
     drill_fields: [job_id, project_id, component, job_waittime_sec]
     value_format_name: decimal_0
   }
