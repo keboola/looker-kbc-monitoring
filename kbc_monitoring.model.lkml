@@ -1,10 +1,9 @@
-connection: "snowflake_monitoring"
+connection: "kbc_monitoring"
 
 # include all the views
 include: "*.view"
 
-# include all the dashboards
-include: "*.dashboard"
+
 
 datagroup: kbc_monitoring_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -13,5 +12,5 @@ datagroup: kbc_monitoring_default_datagroup {
 
 persist_with: kbc_monitoring_default_datagroup
 
-# sadf
+
 explore: kbcjobs {}
