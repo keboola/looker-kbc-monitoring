@@ -169,6 +169,12 @@ view: kbcjobs {
     drill_fields: [job_id, project_id, component, job_waittime_sec]
   }
 
+  measure: average_runtime_sec {
+    type: average
+    sql: ${job_runtime_sec} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+  }
+
   measure: total_runtime_sec {
     type: sum
     sql: ${job_runtime_sec} ;;
