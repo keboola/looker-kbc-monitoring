@@ -3,6 +3,9 @@ connection: "kbc_monitoring"
 # include all the views
 include: "*.view"
 
+# include dashboards
+include: "*.dashboard"
+
 
 
 datagroup: kbc_monitoring_default_datagroup {
