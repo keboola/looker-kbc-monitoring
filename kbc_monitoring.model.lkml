@@ -3,8 +3,6 @@ connection: "kbc_monitoring"
 # include all the views
 include: "*.view"
 
-# include dashboards
-include: "*.dashboard"
 
 
 
