@@ -205,4 +205,9 @@ view: kbcjobs {
     type: count_distinct
     sql: ${component} ;;
   }
+
+  measure: number_of_unique_projects {
+    type: count_distinct
+    sql: ${project_id} ;;
+  }
 }
