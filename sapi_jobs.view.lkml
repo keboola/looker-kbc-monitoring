@@ -1,19 +1,23 @@
 view: sapi_jobs {
-  sql_table_name: WORKSPACE_334794."sapi-jobs" ;;
+  sql_table_name: WORKSPACE_334794.SAPI_JOBS ;;
 
-  dimension: id {
+  dimension: JOB_ID {
     type: string
-    sql: ${TABLE}."id" ;;
+    sql: ${TABLE}.JOB_ID ;;
   }
 
 
-  dimension: projectId {
+  dimension: PROJECT_ID {
     type: string
-    sql:  ${TABLE}."idProject" ;;
+    sql:  ${TABLE}.PROJECT_ID ;;
   }
 
+  dimension: PROJECT_REGION {
+    type: string
+    sql:  ${TABLE}.PROJECT_REGION ;;
+  }
 
-  dimension_group: created {
+  dimension_group: JOB_CREATED {
     type: time
     timeframes: [
       raw,
@@ -31,14 +35,14 @@ view: sapi_jobs {
       quarter,
       year
     ]
-    sql: ${TABLE}."createdTime" ;;
+    sql: ${TABLE}.JOB_CREATED ;;
   }
 
 
 
   measure: count {
     type: count
-    drill_fields: [projectId, count]
+    drill_fields: [PROJECT_REGION, PROJECT_ID, count]
   }
 
 }
