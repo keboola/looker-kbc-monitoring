@@ -19,6 +19,11 @@ view: sapi_jobs {
       raw,
       time,
       minute,
+      minute2,
+      minute3,
+      minute4,
+      minute5,
+      minute10,
       hour,
       date,
       week,
@@ -33,7 +38,7 @@ view: sapi_jobs {
 
   measure: count {
     type: count
-    drill_fields: [id, projectId]
+    drill_fields: [projectId, count]
   }
 
 }
