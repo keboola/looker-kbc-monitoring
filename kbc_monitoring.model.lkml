@@ -15,3 +15,4 @@ persist_with: kbc_monitoring_default_datagroup
 
 
 explore: kbcjobs {}
+explore: sapi_jobs {}
