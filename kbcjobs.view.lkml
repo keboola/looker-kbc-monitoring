@@ -152,6 +152,11 @@ view: kbcjobs {
     sql: ${TABLE}.STORAGE_MB ;;
   }
 
+  measure: sum_network_mb  {
+    type: sum
+    sql: ${network_mb} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [job_id, project_region, project_id, component,job_waittime_sec, job_runtime_sec]
