@@ -168,6 +168,12 @@ view: kbcjobs {
     drill_fields: [job_id, project_id, component, job_waittime_sec]
   }
 
+  measure: max_waittime_sec {
+    type: max
+    sql: ${job_waittime_sec} ;;
+    drill_fields: [job_id, project_id, component, job_waittime_sec]
+  }
+
   measure: median_runtime_sec {
     type: median
     sql: ${job_runtime_sec} ;;
