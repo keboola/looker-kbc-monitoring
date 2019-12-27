@@ -119,4 +119,23 @@ view: sapi_jobs {
     drill_fields: [PROJECT_REGION, PROJECT_ID, count]
   }
 
+  measure: AVERAGE_JOB_WAITTIME_SEC {
+    type: average
+    sql: ${JOB_WAITTIME_SEC} ;;
+  }
+
+  measure: MAX_JOB_WAITTIME_SEC {
+    type: max
+    sql: ${JOB_WAITTIME_SEC} ;;
+  }
+
+  measure: AVERAGE_JOB_RUNTIME_SEC {
+    type: average
+    sql: ${JOB_RUNTIME_SEC} ;;
+  }
+
+  measure: MAX_JOB_RUNTIME_SEC {
+    type: max
+    sql: ${JOB_RUNTIME_SEC} ;;
+  }
 }
