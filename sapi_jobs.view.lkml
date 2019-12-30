@@ -134,6 +134,11 @@ view: sapi_jobs {
     sql: ${JOB_RUNTIME_SEC} ;;
   }
 
+  measure: SUM_JOB_RUNTIME_SEC {
+    type: sum
+    sql: ${JOB_RUNTIME_SEC} ;;
+  }
+
   measure: MAX_JOB_RUNTIME_SEC {
     type: max
     sql: ${JOB_RUNTIME_SEC} ;;
