@@ -152,6 +152,16 @@ view: kbcjobs {
     sql: ${TABLE}.STORAGE_MB ;;
   }
 
+  dimension: cpu_seconds {
+    type: number
+    sql: ${TABLE}.CPU_SECONDS ;;
+  }
+
+  dimension: memory_usage_mb {
+    type: number
+    sql: ${TABLE}.MEMORY_USAGE_MB ;;
+  }
+
   measure: sum_network_mb  {
     type: sum
     sql: ${network_mb} ;;
@@ -220,5 +230,15 @@ view: kbcjobs {
   measure: number_of_unique_projects {
     type: count_distinct
     sql: ${project_id} ;;
+  }
+
+  measure: total_cpu_seconds {
+    type:  sum
+    sql: ${cpu_seconds} ;;
+  }
+
+  measure: total_memory_usage_mb {
+    type:  sum
+    sql: ${memory_usage_mb} ;;
   }
 }
