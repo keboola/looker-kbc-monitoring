@@ -26,18 +26,35 @@ view: s3_data_transfer {
     sql: ${TABLE}.PROJECT_REGION ;;
   }
 
+  dimension_group: date {
+    type: time
+    datatype: date
+    timeframes: [
+      raw,
+      time,
+      minute,
+      hour,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.DATE ;;
+  }
+
   dimension: date {
     type: date
     sql: ${TABLE}.DATE ;;
   }
 
   dimension: operation {
-    type: number
+    type: string
     sql: ${TABLE}.OPERATION ;;
   }
 
   dimension: remote_access {
-    type: number
+    type: string
     sql: ${TABLE}.REMOTE_ACCESS ;;
   }
 
@@ -73,9 +90,9 @@ view: s3_data_transfer {
   }
 
 
-  measure: sum_bytes_sent  {
+  measure: sum_giga_bytes_sent  {
     type: sum
-    sql: ${bytes_sent} ;;
+    sql: ${bytes_sent} / (1000 * 1000 * 1000);;
   }
 
 
