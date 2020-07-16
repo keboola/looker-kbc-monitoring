@@ -21,6 +21,11 @@ view: s3_data_transfer {
     sql: ${TABLE}.PROJECT_NAME ;;
   }
 
+  dimension: project_region {
+    type: string
+    sql: ${TABLE}.PROJECT_REGION ;;
+  }
+
   dimension: date {
     type: date
     sql: ${TABLE}.DATE ;;
