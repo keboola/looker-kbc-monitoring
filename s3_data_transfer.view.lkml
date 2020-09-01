@@ -95,5 +95,11 @@ view: s3_data_transfer {
     sql: ${bytes_sent} / (1000 * 1000 * 1000);;
   }
 
+  measure: sum_cost_transfer_out  {
+    type: sum
+    sql: ${bytes_sent} / (1000 * 1000 * 1000 * 1000) * 90;;
+    value_format: "$#.00;($#.00)"
+  }
+
 
 }
