@@ -14,7 +14,18 @@ datagroup: kbc_monitoring_default_datagroup {
 persist_with: kbc_monitoring_default_datagroup
 
 
-explore: kbcjobs {}
-explore: sapi_jobs {}
-explore: oauth_credentials {}
-explore: s3_data_transfer{}
+explore: kbcjobs {
+  hidden: yes
+}
+
+explore: sapi_jobs {
+  hidden: yes
+}
+
+explore: oauth_credentials {
+  hidden: yes
+}
+
+explore: s3_data_transfer{
+  hidden: yes
+}
